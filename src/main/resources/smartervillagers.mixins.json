@@ -4,6 +4,9 @@
   "package": "omegajak.smartervillagers.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityMixin",
+    "MerchantEntityMixin",
+    "VillagerEntityMixin"
   ],
   "client": [
   ],
