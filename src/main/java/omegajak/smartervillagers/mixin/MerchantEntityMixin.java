@@ -1,10 +1,6 @@
 package omegajak.smartervillagers.mixin;
 
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.MerchantEntity;
-import net.minecraft.entity.passive.VillagerEntity;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOfferList;
 import net.minecraft.village.TradeOffers;
@@ -17,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MerchantEntity.class)
-public abstract class MerchantEntityMixin extends EntityMixin {
+public abstract class MerchantEntityMixin extends LivingEntityMixin {
     @Shadow public abstract World getMerchantWorld();
 
     @Shadow @Nullable protected TradeOfferList offers;
