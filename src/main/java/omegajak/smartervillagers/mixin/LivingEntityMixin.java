@@ -4,6 +4,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.util.math.Vec3d;
+import omegajak.smartervillagers.SmarterVillagers;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,7 +18,7 @@ public abstract class LivingEntityMixin extends EntityMixin {
 
     @ModifyVariable(at = @At("HEAD"), method = "applyClimbingSpeed(Lnet/minecraft/util/math/Vec3d;)Lnet/minecraft/util/math/Vec3d;", ordinal = 0)
     private Vec3d modifyClimbingSpeedMotionParameter(Vec3d motion) {
-        if (this.isClimbing() && ((Object)this instanceof MobEntity)) {
+        if (SmarterVillagers.getCurrentConfig().avoidGettingStuckOnLadders && this.isClimbing() && ((Object)this instanceof MobEntity)) {
             MobEntity mobEntity = ((MobEntity)(Object)this);
             EntityNavigation entityNavigation = mobEntity.getNavigation();
             if (entityNavigation.isIdle() && mobEntity.verticalCollision && !mobEntity.isOnGround()) {

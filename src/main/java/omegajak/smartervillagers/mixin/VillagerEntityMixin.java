@@ -11,6 +11,7 @@ import net.minecraft.village.TradeOfferList;
 import net.minecraft.village.TradeOffers;
 import net.minecraft.village.VillagerData;
 import net.minecraft.world.World;
+import omegajak.smartervillagers.SmarterVillagers;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,19 +25,17 @@ import java.util.stream.Stream;
 
 @Mixin(VillagerEntity.class)
 public abstract class VillagerEntityMixin extends MerchantEntityMixin {
-    private final int RETRIES_PER_FACTORY = 5;
-
     @Shadow public abstract VillagerData getVillagerData();
 
     @Override
     protected void fillRecipesFromPool(TradeOfferList recipeList, TradeOffers.Factory[] pool, int count, CallbackInfo ci) {
         World world = this.getMerchantWorld();
-        if (world == null || world.isClient) return;
+        if (world == null || world.isClient || !SmarterVillagers.getCurrentConfig().duplicateTradesConfig.enabled) return;
 
         System.out.println("Fill recipes override");
-        Box searchBox = new Box(getBlockPos()).expand(48.0D);
+        Box searchBox = new Box(getBlockPos()).expand(SmarterVillagers.getCurrentConfig().duplicateTradesConfig.searchRange);
         List<VillagerEntity> villagersWithSameProfessionInRange = world.getEntitiesByType(EntityType.VILLAGER, searchBox, this::shouldCheckTradesAgainst);
-        System.out.println("Found " + villagersWithSameProfessionInRange.size() + " other villagers of the same profession in range");
+        System.out.println("Found " + villagersWithSameProfessionInRange.size() + " other villagers of the same profession within " + SmarterVillagers.getCurrentConfig().duplicateTradesConfig.searchRange + " blocks.");
 
         ArrayList<TradeOffer> existingOffers = new ArrayList<>();
         for (VillagerEntity otherVillager : villagersWithSameProfessionInRange) {
@@ -61,7 +60,7 @@ public abstract class VillagerEntityMixin extends MerchantEntityMixin {
                 offersToAvoid.add(replacementOffer);
                 toPrint += "Successfully replaced with " + toString(replacementOffer);
             } else {
-                toPrint += "Failed to find an offer to replace it with after " + RETRIES_PER_FACTORY + " attempts.";
+                toPrint += "Failed to find an offer to replace it with after " + SmarterVillagers.getCurrentConfig().duplicateTradesConfig.newTradeAttempts + " attempts.";
             }
 
             System.out.println(toPrint);
@@ -75,7 +74,7 @@ public abstract class VillagerEntityMixin extends MerchantEntityMixin {
             TradeOffers.Factory[] factories = tradeOfferFactoriesMap.get(villagerData.getLevel());
             if (factories != null) {
                 for (TradeOffers.Factory factory : factories) {
-                    for (int i = 0; i < RETRIES_PER_FACTORY; i++) {
+                    for (int i = 0; i < SmarterVillagers.getCurrentConfig().duplicateTradesConfig.newTradeAttempts; i++) {
                         TradeOffer tradeOffer = factory.create(getThis(), this.random);
                         if (tradeOffer != null && !isAnyOfferDuplicate(offersToAvoidDuplicating, tradeOffer)) {
                             return tradeOffer;

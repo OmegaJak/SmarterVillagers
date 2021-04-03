@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "omegajak.smartervillagers.SmarterVillagers"
+    ],
+    "modmenu": [
+      "omegajak.smartervillagers.integration.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -29,9 +32,10 @@
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.9"
   },
   "suggests": {
-    "another-mod": "*"
+    "modmenu": "*"
   }
 }

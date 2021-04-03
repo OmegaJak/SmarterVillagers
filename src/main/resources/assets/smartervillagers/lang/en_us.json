@@ -1,0 +1,22 @@
+{
+  "text.autoconfig.smartervillagers.title": "Smarter Villagers Config",
+
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig": "Duplicate Trades Config",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.enabled": "Avoid duplicate trades",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.enabled.@Tooltip[0]": "If enabled, villagers will avoid duplicating",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.enabled.@Tooltip[1]": "the trades of other villagers in range",
+
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.searchRange": "Duplicate trade search range",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.searchRange.@Tooltip[0]": "The number of blocks a villager looks for other",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.searchRange.@Tooltip[1]": "villagers in, whose trades they will avoid. Very high",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.searchRange.@Tooltip[2]": "values may impact performance when villagers level up.",
+
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.newTradeAttempts": "New trade attempts",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.newTradeAttempts.@Tooltip[0]": "How many attempts a villager will make at avoiding a duplicate.",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.newTradeAttempts.@Tooltip[1]": "Higher values mean a better chance at avoiding",
+  "text.autoconfig.smartervillagers.option.duplicateTradesConfig.newTradeAttempts.@Tooltip[2]": "duplicates but could hurt performance.",
+
+  "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders": "Avoid getting stuck on ladders",
+  "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders.@Tooltip[0]": "If enabled, a villager (or other mob) stuck at the top of a ladder",
+  "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders.@Tooltip[1]": "will go to the bottom and choose a new destination."
+}
