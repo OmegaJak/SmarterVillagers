@@ -14,6 +14,9 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.RequiresRestart(value =  false)
     public boolean avoidGettingStuckOnLadders = true;
 
+    @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
+    public FollowButton followButtonConfig = new FollowButton();
+
     public static class DuplicateTrades {
         @ConfigEntry.Gui.Tooltip(count = 2)
         @ConfigEntry.Gui.RequiresRestart(value =  false)
@@ -26,6 +29,16 @@ public class ModConfig implements ConfigData {
         @ConfigEntry.Gui.Tooltip(count = 3)
         @ConfigEntry.Gui.RequiresRestart(value =  false)
         public int newTradeAttempts = 5;
+    }
+
+    public static class FollowButton {
+        @ConfigEntry.Gui.Tooltip(count = 2)
+        @ConfigEntry.Gui.RequiresRestart(value = false)
+        public boolean enabled = true;
+
+        @ConfigEntry.Gui.Tooltip(count = 1)
+        @ConfigEntry.Gui.RequiresRestart(value = false)
+        public int followDuration = 600;
     }
 
     @Override

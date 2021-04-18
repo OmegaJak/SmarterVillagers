@@ -7,9 +7,12 @@
     "EntityMixin",
     "LivingEntityMixin",
     "MerchantEntityMixin",
+    "MerchantScreenHandlerMixin",
     "VillagerEntityMixin"
   ],
   "client": [
+    "HandledScreenMixin",
+    "MerchantScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -93,3 +93,7 @@ publishing {
 		// retrieving dependencies.
 	}
 }
+
+minecraft {
+	accessWidener "src/main/resources/smartervillagers.accesswidener"
+}

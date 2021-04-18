@@ -18,5 +18,12 @@
 
   "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders": "Avoid getting stuck on ladders",
   "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders.@Tooltip[0]": "If enabled, a villager (or other mob) stuck at the top of a ladder",
-  "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders.@Tooltip[1]": "will go to the bottom and choose a new destination."
+  "text.autoconfig.smartervillagers.option.avoidGettingStuckOnLadders.@Tooltip[1]": "will go to the bottom and choose a new destination.",
+
+  "text.autoconfig.smartervillagers.option.followButtonConfig": "Follow Button Config",
+  "text.autoconfig.smartervillagers.option.followButtonConfig.enabled": "Add Follow Button",
+  "text.autoconfig.smartervillagers.option.followButtonConfig.enabled.@Tooltip[0]": "Add a button to the villager trades GUI",
+  "text.autoconfig.smartervillagers.option.followButtonConfig.enabled.@Tooltip[1]": "that tells a villager to follow you",
+  "text.autoconfig.smartervillagers.option.followButtonConfig.followDuration": "Follow Duration",
+  "text.autoconfig.smartervillagers.option.followButtonConfig.followDuration.@Tooltip": "How long a villager follows for (in ticks)"
 }

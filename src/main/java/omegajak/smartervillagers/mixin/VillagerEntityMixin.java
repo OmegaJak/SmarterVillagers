@@ -2,19 +2,20 @@ package omegajak.smartervillagers.mixin;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.Box;
-import net.minecraft.village.TradeOffer;
-import net.minecraft.village.TradeOfferList;
-import net.minecraft.village.TradeOffers;
-import net.minecraft.village.VillagerData;
+import net.minecraft.village.*;
 import net.minecraft.world.World;
 import omegajak.smartervillagers.SmarterVillagers;
+import omegajak.smartervillagers.ai.brain.SmarterVillagerActivities;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.ArrayList;
@@ -65,6 +66,11 @@ public abstract class VillagerEntityMixin extends MerchantEntityMixin {
 
             System.out.println(toPrint);
         }
+    }
+
+    @Inject(at = @At("HEAD"), method = "initBrain(Lnet/minecraft/entity/ai/brain/Brain;)V")
+    public void initBrainMixin(Brain<VillagerEntity> brain, CallbackInfo callbackInfo) {
+        brain.setTaskList(SmarterVillagerActivities.FOLLOW_LEADER_ACTIVITY, SmarterVillagerActivities.createFollowTasks());
     }
 
     @Nullable
