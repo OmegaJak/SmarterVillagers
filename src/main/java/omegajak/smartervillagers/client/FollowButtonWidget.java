@@ -14,7 +14,7 @@ import omegajak.smartervillagers.network.Networking;
 
 @Environment(EnvType.CLIENT)
 public class FollowButtonWidget extends TexturedButtonWidget {
-    private static final Identifier TEXTURE = SmarterVillagers.id("textures/gui/follow_me_button_2.png");
+    private static final Identifier TEXTURE = SmarterVillagers.id("textures/gui/follow_me_button.png");
 
     private static final int HOVERED_V_OFFSET = 13;
     private static final int TEXTURE_WIDTH = 12;

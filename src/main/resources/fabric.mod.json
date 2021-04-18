@@ -9,8 +9,8 @@
     "OmegaJak"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/OmegaJak/",
+    "sources": "https://github.com/OmegaJak/SmarterVillagers"
   },
 
   "license": "CC0-1.0",
@@ -28,7 +28,7 @@
   "mixins": [
     "smartervillagers.mixins.json"
   ],
-
+  "accessWidener": "smartervillagers.accesswidener",
   "depends": {
     "fabricloader": ">=0.7.4",
     "fabric": "*",
