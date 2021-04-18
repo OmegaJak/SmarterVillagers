@@ -23,8 +23,8 @@ public abstract class MerchantScreenMixin extends HandledScreenMixin {
     private void initMixin(CallbackInfo callbackInfo) {
         if (!SmarterVillagers.getCurrentConfig().followButtonConfig.enabled) return;
 
-        int buttonX = this.x + this.backgroundWidth - 18;
-        int buttonY = this.y + 6;
+        int buttonX = this.x + 4;
+        int buttonY = this.y + 4;
         FollowButtonWidget followButtonWidget = new FollowButtonWidget(buttonX, buttonY);
         this.addButton(followButtonWidget);
     }

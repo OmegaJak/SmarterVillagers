@@ -42,6 +42,8 @@ public class Networking {
                 villagerEntity.getBrain().remember(SmarterVillagerMemoryModules.LEADER, player);
                 villagerEntity.getBrain().remember(SmarterVillagerMemoryModules.STARTED_FOLLOWING_TIME, player.world.getTime());
                 villagerEntity.getBrain().doExclusively(SmarterVillagerActivities.FOLLOW_LEADER_ACTIVITY);
+
+                player.closeHandledScreen();
             }
         }
     }
