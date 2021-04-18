@@ -2,6 +2,7 @@ package omegajak.smartervillagers.ai.brain;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.Activity;
 import net.minecraft.entity.ai.brain.task.GoTowardsLookTarget;
 import net.minecraft.entity.ai.brain.task.RandomTask;
@@ -19,7 +20,7 @@ public class SmarterVillagerActivities {
         float f = 0.5f;
         return ImmutableList.of(
             Pair.of(0, new StopFollowingLeaderTask()),
-            Pair.of(1, new RandomTask(ImmutableList.of(
+            Pair.of(1, new RandomTask<>(ImmutableList.of(
                 Pair.of(new LookAtLeaderTask(16.0f), 3),
                 Pair.of(new GoTowardsLookTarget(f, 2), 3)))
             ),

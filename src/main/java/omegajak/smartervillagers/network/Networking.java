@@ -29,7 +29,6 @@ public class Networking {
     @Environment(EnvType.CLIENT)
     public static void sendFollowPacket() {
         ClientPlayNetworking.send(Networking.FOLLOW_PACKET, new PacketByteBuf(Unpooled.buffer()));
-        System.out.println("Sending follow packet from client");
     }
 
     private static void receiveFollowPacket(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
